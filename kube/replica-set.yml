@@ -1,0 +1,29 @@
+# this is the current (new) way
+apiVersion: apps/v1 #diff from replication-controller
+kind: ReplicaSet
+metadata:
+  name: myapp-rs
+  labels:
+    app: myapp
+    type: front-end
+spec:
+  # this defines what is inside the object we are creating, which should be pod in this case
+  template:
+    metadata:
+      name: myapp-pod
+      labels:
+        app: myapp
+        type: front-end
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+  replicas: 3
+    # scaling: 1. kubectl replace -f replica-set.yml
+             # 2. kubectl scale --replicas=6 -f replica-set.yml
+             # 3. kubectl scale --replicas=6 -f replicaset myapp-rs
+  selector:
+    #replica set can manage pods that are not created in this template
+    #mandatory
+    matchLabels:
+      type: front-end
