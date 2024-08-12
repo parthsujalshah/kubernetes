@@ -1,0 +1,2 @@
+1. kubectl config set-context --current --namespace=<namespace-na
+2. kubectl config view

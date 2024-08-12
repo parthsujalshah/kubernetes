@@ -1,0 +1,13 @@
+1. Run Pod: kubectl run nginx --image=nginx (if you want to expose port, add: --port 8080)
+2. Get output into yaml: kubectl run nginx --image=nginx --dry-run=client -o yaml
+3. Get output into yaml File: kubectl run nginx --image=nginx --dry-run=client -o yaml > nginx-pod.yaml
+4. Create Deployments: kubectl create deployment nginx --image=nginx --replicas=4
+5. kubectl scale deployment nginx --replicas=5
+6. Create Service
+    Type: ClusterIp
+        a. automatically use the pod's labels as selectors: kubectl expose pod nginx --port=6379 --name nginx --dry-run=client -o yaml
+        b. selector as app=nginx: kubectl create service clusterip nginx --tcp=6379:6379 --dry-run=client -o yaml
+    Type NodePort
+        a. kubectl expose pod nginx --port=6379 --name=nginx-service --type=NodePort --dry-run=client -o yaml
+        b. kubectl create service nodeport nginx --tcp=80:80 node-port=30080 --dry-run=client -o yaml
+7. Create Namespace: kubectl create namespace(or ns) <name>
