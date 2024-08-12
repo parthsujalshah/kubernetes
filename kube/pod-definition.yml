@@ -12,6 +12,10 @@ spec:
       args: ["spring-boot:run"]
       ports:
         - containerPort: 8081
-      env:
-        - name: var1
-          value: variable1
+#      env:
+#        - name: var1
+#          value: variable1
+      envFrom:
+        - configMapRef:
+            # centrally store env variables
+            name: app-config

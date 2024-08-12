@@ -11,3 +11,10 @@
         a. kubectl expose pod nginx --port=6379 --name=nginx-service --type=NodePort --dry-run=client -o yaml
         b. kubectl create service nodeport nginx --tcp=80:80 node-port=30080 --dry-run=client -o yaml
 7. Create Namespace: kubectl create namespace(or ns) <name>
+8. kubectl create configmap \
+    app-config --from-literal=var1=variable1 \
+        --from-literal=var2=variable2
+    (app-config is the config map name)
+
+    kubectl create configmap \
+        app-config from-file: app_config.properties
