@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kub
+spec:
+  containers:
+    - name: kubtut
+      image: kubetut:latest
+      imagePullPolicy: IfNotPresent  # Use the local image if available
+      # command and args will be default from dockerfile else overridden
+      command: ["mvn"]
+      args: ["spring-boot:run"]
