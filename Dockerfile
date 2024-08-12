@@ -12,7 +12,7 @@ RUN java -version && mvn -v
 COPY . /app/
 WORKDIR /app/
 RUN mvn clean install
-
+EXPOSE 8081
 ENTRYPOINT ["mvn"]
 CMD ["spring-boot:run"]
 # by default mvn spring-boot:run
