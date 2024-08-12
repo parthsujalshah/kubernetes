@@ -12,4 +12,8 @@ RUN java -version && mvn -v
 COPY . /app/
 WORKDIR /app/
 RUN mvn clean install
-ENTRYPOINT ["mvn", "spring-boot:run"]
+
+ENTRYPOINT ["mvn"]
+CMD ["spring-boot:run"]
+# by default mvn spring-boot:run
+# spring-boot:run can be overridden using command line
