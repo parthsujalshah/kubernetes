@@ -18,3 +18,7 @@
 
     kubectl create configmap \
         app-config from-file: app_config.properties
+9. kubectl create secret generic \
+        <secret-name> --from-literal=DB_HOST=mysql
+    kubectl create secret generic \
+        <secret-name> --from-file=<path>

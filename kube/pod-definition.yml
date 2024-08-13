@@ -15,7 +15,15 @@ spec:
 #      env:
 #        - name: var1
 #          value: variable1
+#        - name: var1
+      #OR
+#          valueFrom:
+#            - configMapKeyRef:
+#              name: app-config
+#              key: var1
       envFrom:
         - configMapRef:
             # centrally store env variables
             name: app-config
+        - secretRef:
+            name: app-secret
