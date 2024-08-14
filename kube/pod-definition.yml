@@ -18,6 +18,14 @@ spec:
         runAsUser: 100 # user id for this container, will override the above one
         capabilities:
           add: [ "MAC_ADMIN" ]
+      envFrom:
+        - configMapRef:
+            # centrally store env variables
+            name: app-config
+        - secretRef:
+            name: app-secret
+#  serviceAccountName: dashboard-sa
+#  autoMountServiceAccount: false
 #      env:
 #        - name: var1
 #          value: variable1
@@ -27,9 +35,3 @@ spec:
 #            - configMapKeyRef:
 #              name: app-config
 #              key: var1
-      envFrom:
-        - configMapRef:
-            # centrally store env variables
-            name: app-config
-        - secretRef:
-            name: app-secret

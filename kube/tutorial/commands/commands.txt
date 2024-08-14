@@ -4,3 +4,10 @@
 3. docker run --cap-drop KILL ubuntu -> drop privileges
 4. docker run --privileged ubuntu -> run with all privileges
     **Settings on container will override with that on pod
+5. Service Account: account used by machine (like Jenkins): kubectl create serviceaccount dashboard-sa
+    a. token for account is created and stored in secrets
+    b. token can be used to make rest call to kube api using curl ->  --header "Authorization: Bearer <token>"
+        or copy it to your jenkins dashboard to authenticate it
+    c. if the jenkins is hosted inside the cluster, you can simply take token from volumes
+    d. an account with name: default exists
+    e. with version 1.24 tokens are not auto generated. Run command: kubectl create token dashboard-sa
