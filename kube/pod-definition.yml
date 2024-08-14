@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   name: kub
 spec:
+  securityContext:
+    runAsUser: 100 # user id for all containers
   containers:
     - name: kubtut
       image: kubetut:latest
@@ -12,6 +14,10 @@ spec:
       args: ["spring-boot:run"]
       ports:
         - containerPort: 8081
+      securityContext:
+        runAsUser: 100 # user id for this container, will override the above one
+        capabilities:
+          add: [ "MAC_ADMIN" ]
 #      env:
 #        - name: var1
 #          value: variable1

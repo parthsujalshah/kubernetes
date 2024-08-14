@@ -1,2 +1,6 @@
 1. kubectl config set-context --current --namespace=<namespace-na
 2. kubectl config view
+3. docker run --cap-add MAC_ADMIN ubuntu -> add privileges
+3. docker run --cap-drop KILL ubuntu -> drop privileges
+4. docker run --privileged ubuntu -> run with all privileges
+    **Settings on container will override with that on pod
