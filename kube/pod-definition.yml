@@ -13,6 +13,7 @@ spec:
       command: ["mvn"]
       args: ["spring-boot:run"]
       resources:
+        # either this or define it using LimitRange object
         requests:
           memory: "1Gi"
           cpu: 1 # 1 CPU ~ 1 AWS vCPU | GCP Code | Azure Core | Hyperthread
