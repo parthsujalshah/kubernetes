@@ -5,6 +5,18 @@ metadata:
 spec:
   securityContext:
     runAsUser: 100 # user id for all containers
+#  nodeSelector:
+#    size: large # just a key value pair
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution: # preferredDuringSchedulingIgnoreDuringExecution | Not available yet, might be there in future release: requiredDuringSchedulingRequiredDuringExecution
+        nodeSelectorTerms:
+          matchExpressions:
+            - key: size
+              operator: In # Other operators: NotIn
+              values:
+                - large
+                - medium
   containers:
     - name: kubtut
       image: kubetut:latest
@@ -39,6 +51,11 @@ spec:
 #          value: variable1
 #        - name: var1
       #OR
+  tolerations:
+    - key: "app"
+      operator: "Equal"
+      value: "blue"
+      effect: "NoSchedule"
 #          valueFrom:
 #            - configMapKeyRef:
 #              name: app-config

@@ -13,3 +13,10 @@
     e. with version 1.24 tokens are not auto generated. Run command: kubectl create token dashboard-sa
     f. Set service account after updating deployment.yml kubectl set serviceaccount deploy/web-dashboard dashboard-sa
 6. CPU: Req but no Limit is ideal scenario
+7. Taints and Tolerance:
+    kubectl taint node node-name key=value:NoSchedule
+    effects:
+        a. NoSchedule
+        b. PreferNoSchedule
+        c. NoExecute: existing pods will be evacuated
+8. Labelling nodes: kubectl label nodes node1 size=large
