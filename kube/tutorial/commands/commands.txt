@@ -11,3 +11,4 @@
     c. if the jenkins is hosted inside the cluster, you can simply take token from volumes
     d. an account with name: default exists
     e. with version 1.24 tokens are not auto generated. Run command: kubectl create token dashboard-sa
+    f. Set service account after updating deployment.yml kubectl set serviceaccount deploy/web-dashboard dashboard-sa
