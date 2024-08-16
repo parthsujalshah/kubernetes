@@ -11,7 +11,7 @@ spec:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution: # preferredDuringSchedulingIgnoreDuringExecution | Not available yet, might be there in future release: requiredDuringSchedulingRequiredDuringExecution
         nodeSelectorTerms:
-          matchExpressions:
+          - matchExpressions:
             - key: size
               operator: In # Other operators: NotIn
               values:
