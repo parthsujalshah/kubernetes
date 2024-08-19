@@ -20,3 +20,11 @@
         b. PreferNoSchedule
         c. NoExecute: existing pods will be evacuated
 8. Labelling nodes: kubectl label nodes node1 size=large
+9. kubectl exec -it <pod-name> cat /app/app.log
+10. kubectl get pods --selector env=dev
+    kubectl get pods --selector env=dev,bu=finance
+11. kubectl rollout status deployment/<name>
+    kubectl rollout history deployment/<name>
+    kubectl rollout undo deployment/<name>
+    kubectl set image deployment nginx nginx=nginx:1.17 --record
+    kubectl rollout history deployment nginx --revision=3
