@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: math-add-job
 spec:
-  completion: 3 # number of pods to spawn. In case a pod fails, job will spawn more pods to ensure 3 successful completions
+  completions: 3 # number of pods to spawn. In case a pod fails, job will spawn more pods to ensure 3 successful completions
   parallelism: 3 # optional
   template:
     spec:
@@ -11,4 +11,4 @@ spec:
         - name: math-add
           image: ubuntu
           command: ["expr", "3", "+", "2"]
-    restartPolicy: Never
+      restartPolicy: Never
