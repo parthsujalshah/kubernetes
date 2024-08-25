@@ -22,6 +22,10 @@ spec:
       hostPath:
         path: /data
         type: Directory
+    - name: data-volume-ebs
+      awsElasticBlockStore:
+        volumeId: <id>
+        fsType: ext4
   containers:
     - name: kubtut
       image: kubetut:latest
