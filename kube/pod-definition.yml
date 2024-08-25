@@ -17,6 +17,11 @@ spec:
               values:
                 - large
                 - medium
+  volumes:
+    - name: data-volume
+      hostPath:
+        path: /data
+        type: Directory
   containers:
     - name: kubtut
       image: kubetut:latest
@@ -24,6 +29,9 @@ spec:
       # command and args will be default from dockerfile else overridden
       command: ["mvn"]
       args: ["spring-boot:run"]
+      volumeMounts:
+        - mountPath: /opt # within container
+          name: data-volume
       resources:
         # either this or define it using LimitRange object
         requests:
