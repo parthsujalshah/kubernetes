@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: myclaim
+spec: # due to the configured spec, it will match the persistent-volume:  pv-vol1
+  accessMode:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500Mi
