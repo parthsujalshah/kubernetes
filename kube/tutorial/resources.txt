@@ -1,0 +1,15 @@
+1. Pod:
+    command
+    args
+    env
+    securityContext
+    tolerations
+    initContainers
+    affinity.nodeAffinity
+    redinessProbe
+    livelinessProbe
+2. ReplicationController
+3. ReplicaSet
+4. Deployments
+5. Namespace
+6. ServiceAccount
