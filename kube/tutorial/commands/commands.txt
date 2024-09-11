@@ -1,3 +1,4 @@
+kube system namespace: kube-system
 1. kubectl config set-context --current --namespace=<namespace-na
 2. kubectl config view
 3. docker run --cap-add MAC_ADMIN ubuntu -> add privileges
@@ -33,3 +34,26 @@
 13. kubectl auth can-i create deployments
     kubectl auth can-i create deployments --as dev-user
     kubectl auth can-i create deployments --as dev-user --namespace test
+14. kubectl exec -it kube-apiserver-controlplane -n kube-system -- kube-apiserver -h | grep 'enable-admission-plugin'
+    /etc/kubernetes/manifests/kube-apiserver.yaml
+15. kubectl api-resources | kubectl describe crd <resource-name>
+16. kubernetes API version: 1.22.2 => <major-version>.<minor-version>.<patch-version>
+17. kubectl explain job => <resource-name>
+18. batch/v1 => <group>/<version>
+19. kubectl proxy 8001& => port & means command running in background
+    curl localhost/8001/apis/<group>
+20. Changing kube manifest to change default version:
+    a. cp /etc/kubernetes/manifests/kube-apiserver.yaml /root/kube-apiserver.yaml.backup
+    b. go to the commands section and add:
+        --runtime-config=rbac.authorization.k8s.io/v1alpha1
+21. If you install a plugin make sure to:
+    a. chmod +x the executable
+    b. mv to /usr/local/bin/
+22. Change depricated version to new one:
+    ubectl-convert -f ingress-old.yaml --output-version networking.k8s.io/v1 > ingress-new.yaml
+23. helm repo add bitnami https://charts.bitnami.com/bitnami
+    helm search repo <name>
+    helm repo list
+    helm install <release> <repo/chart> (if it is downloaded just .)
+    helm uninstall <release>
+    helm pull --untar <>
