@@ -13,3 +13,14 @@
 4. Deployments
 5. Namespace
 6. ServiceAccount
+7. Service
+8. Ingress
+9. NetworkPolicy
+10. PersistentVolume
+11. PersistentVolumeClaim
+12. Config
+13. Role : <kubernetes api reference docs>
+14. RoleBinding
+15. ValidatingWebhookConfiguration
+16. MutatingWebhookConfiguration
+17. CustomResourceDefinition
