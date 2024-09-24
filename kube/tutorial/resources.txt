@@ -1,3 +1,4 @@
+?? NGINX Controller | ClusterRole
 1. Pod:
     command
     args
@@ -8,19 +9,25 @@
     affinity.nodeAffinity
     redinessProbe
     livelinessProbe
-2. ReplicationController
-3. ReplicaSet
-4. Deployments
-5. Namespace
-6. ServiceAccount
-7. Service
-8. Ingress
-9. NetworkPolicy
-10. PersistentVolume
-11. PersistentVolumeClaim
-12. Config
-13. Role : <kubernetes api reference docs>
-14. RoleBinding
-15. ValidatingWebhookConfiguration
-16. MutatingWebhookConfiguration
-17. CustomResourceDefinition
+2. ConfigMap
+3. Secret
+4. Job
+5. CronJob
+6. ReplicationController
+7. ReplicaSet
+8. Deployments
+9. Namespace
+10. ServiceAccount
+11. Service
+12. Ingress
+13. NetworkPolicy
+14. PersistentVolume
+15. PersistentVolumeClaim
+16. Config : This is the KubeConfig file, $HOME/.kube/config -> cluster - context - users
+17. Role : <kubernetes api reference docs>
+18. RoleBinding
+19. ClusterRole : Can be created for namespace resources as well
+20. ClusterRoleBinding
+21. ValidatingWebhookConfiguration
+22. MutatingWebhookConfiguration
+23. CustomResourceDefinition
